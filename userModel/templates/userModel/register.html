@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+
+<div class="banner" style="padding:5% 5% 5% 5%;display: block;">
+  <div class="container" style="width:50%;padding:0 5% 0 5%;display: table;">
+    <div class="row" style="width:100%;display: table;">
+          <div class="col-md-12 col-sm-6 col-xs-6 appointment" style="display: table;">
+            <div class="schbox-title" style="border: 2px solid yellow;text-align:center;">
+              <h1> Create an account</h1>
+            <p>Please,sign up using the following form:</p>
+            <p>{% if user_form.password.errors %} This password field is required. {% endif %} </p>
+            <p>{% if user_form.password2.errors %} This repeat password field is required. {% endif %} </p>
+            <p>{{user_form.email.errors}} </p>
+            </div>
+            <form role="form" style="display: table;margin: 5% auto 15% auto;" action="." method="post">
+              <div class="col-md-6 col-sm-6 col-xs-6" style="width:100%;">
+                {% for field in user_form %}
+                <div class="form-group" >
+                   <p style="">{{ field.label_tag }}</p>
+                   {% if field.name == 'password' %}
+                   <input style="width:100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;" class="form-control" id="{{ field.id_for_label }}" maxlength="300" name="{{ field.html_name }}"  type="password" />
+                   {% elif field.name == 'password2' %}
+                   <input style="width:100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;" class="form-control" id="{{ field.id_for_label }}" maxlength="300" name="{{ field.html_name }}"  type="password" />
+
+                   {% else %}
+                   <input style="width:100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;" class="form-control" id="{{ field.id_for_label }}" maxlength="300" name="{{ field.html_name }}"  type="text" />
+
+                   {% endif %}
+                   </div>
+                  {% endfor %}
+                {% csrf_token %}
+              <div class="col-md-6 col-sm-12 col-xs-12 text-center">
+                <input type="submit" class="btn orange " value="Create my account"></input>
+              </div>
+              </div>
+            </form>
+       </div>
+
+      </div>
+</div>
+</div>
+{% endblock %}

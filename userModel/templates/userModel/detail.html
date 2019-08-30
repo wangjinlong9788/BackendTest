@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block content %}
+
+
+<div class="banner" style="padding:5% 5% 5% 5%;display: block;">
+  <div class="container" style="width:50%;padding:0 5% 0 5%;display: table;">
+    <div class="row" style="width:100%;display: table;">
+          <div class="col-md-12 col-sm-6 col-xs-6 appointment" style="display: table;">
+            <h1>Hi, {{ user.username }}  </h1><br>
+            <h4>Your recipe infomation is</h4>
+              {%if recipe %}
+                  {% for fav in recipe %}
+                    <li >
+                      Recipe name:  {{ fav.name }}
+                    </li>
+                      <li >
+                    Recipe description:<br>{{ fav.description }}
+                      </li>
+                  {% endfor %}
+                {% else %}
+                {{ user.username }}, You do not have  any recipes yet.
+              {% endif %}
+              <br>
+
+              Your dashboard: <a href="{% url "userModel:dashboard" %}">dashboard</a>
+       </div>
+
+      </div>
+</div>
+</div>
+
+{% endblock %}

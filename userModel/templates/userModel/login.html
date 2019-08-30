@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Log-in{% endblock %}
+
+{% block content %}
+
+<div class="banner">
+  <div class="container">
+        <div class="schbox">
+          <div class="row ">
+            <div class="col-md-3 col-sm-3 col-xs-0 text-center"></div>
+            <form role="form" class="appointform" action="{% url 'userModel:login' %}" method="post">
+              <div class="col-md-6 col-sm-6 col-xs-12 appointment">
+                <div class="schbox-title text-center">
+                 <h2>{% if form.errors %}
+                   <p>
+                     Your username and password didn't match.
+                     Please try again.
+                   </p>
+                 {% else %}
+                     <p style="text-align:left;">
+                       If you don't have an account: <a href="{% url 'userModel:register' %}">register here</a></p>
+                 {% endif %}
+                </h2>
+                </div>
+                {% for field in form %}
+                <div class="form-group" style="box-sizing: border-box;">
+
+                   <p style="width:100%;">{{ field.label_tag }}</p>
+                   {% if field.name == 'password' %}
+                   <input class="form-control" id="{{ field.id_for_label }}" maxlength="300" name="{{ field.html_name }}"  type="password" />
+
+                   {% else %}
+                   <input class="form-control" id="{{ field.id_for_label }}" maxlength="300" name="{{ field.html_name }}"  type="text" />
+
+                   {% endif %}
+                   </div>
+                  {% endfor %}
+                {% csrf_token %}
+                <div class="checkbox mb-3">
+                  <label>  <input type="checkbox" value="remember-me"> Remember me </label>
+                </div>
+              <div class="text-center">
+                <input type="submit" class="btn orange" value="Log-in"></input>
+              </div>
+              </div>
+            </form>
+       </div>
+       </div>
+       <div class="row ">
+       <div class="col-md-3 col-sm-3 col-xs-0"></div>
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

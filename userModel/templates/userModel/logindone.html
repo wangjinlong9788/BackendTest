@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block content %}
+
+
+<div class="banner" style="padding:5% 5% 5% 5%;display: block;">
+  <div class="container" style="width:50%;padding:0 5% 0 5%;display: table;">
+    <div class="row" style="width:100%;display: table;">
+          <div class="col-md-12 col-sm-6 col-xs-6 appointment" style="display: table;">
+            <h1>Hi, {{ user.username }}, You have login successfully!</h1>
+       </div>
+
+      </div>
+</div>
+</div>
+
+{% endblock %}

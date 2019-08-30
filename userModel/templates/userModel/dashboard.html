@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="testimonial">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <h3 class="top-head">Your Dashboard</h3>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+
+        <div class="testbox">
+
+          <div class="test" style="text-align: center;">
+		  <br>
+            <h4>  Welcome to your dashboard.</h4>
+
+
+                <span class="user">
+                  {% if request.user.is_authenticated %}
+                  {% if request.user.email %}
+                   <a href="{% url 'userModel:user_email_detail' request.user.email  %}"><h4>
+                       {{ request.user.first_name }}'s recipes</h4></a>
+                    {% else %}
+                    <h4>  {{ request.user.first_name }}'s recipes is empty.</h4>
+                  {% endif %}
+                    <a href="{% url 'userModel:logout' %}"><h4>Logout</h4></a>
+                  {% else %}
+                    <a href="{% url 'userModel:login' %}"><h4>Log-in</h4></a>
+                  {% endif %}
+                </span>
+
+
+          </div>
+
+        </div>
+
+
+    </div>
+
+      </div>
+    </div>
+
+
+{% endblock %}
