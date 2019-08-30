@@ -19,9 +19,7 @@ class ListCreateIngredientView(generics.ListCreateAPIView):
 
 
     def post(self,request,*args,**kwargs):
-        #id=self.kwargs["user"]
-        #user = User.objects.get(id=id)
-        #id=self.kwargs["user"]
+
 
         id=request.data["recipe"]
         recipe = Recipe.objects.get(id=id)
