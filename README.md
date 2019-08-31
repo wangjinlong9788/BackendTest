@@ -35,6 +35,7 @@ superuser is :admin password:qazwsx123
 - Show ingredient accordingly:(You can delete update and get the ingredient here)
 ![Image description](https://github.com/wangjinlong9788/BackendTest/blob/master/show/ingredient.JPG)
 
+- Whole
 ![Image description](https://github.com/wangjinlong9788/BackendTest/blob/master/show/List%20Create%20Recipe%20%E2%80%93%20Django%20REST%20framework.png)
 
 - Show recipe according to user by recipe Id:(You can delete update and get the recipe by recipe id here)
