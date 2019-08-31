@@ -25,7 +25,7 @@ class ListCreateStepView(generics.ListCreateAPIView):
         recipe = Recipe.objects.get(id=id)
         a_Step=Step.objects.create(
 
-           name=request.data["name"],
+           step_txt=request.data["step_txt"],
            description=request.data["description"],
            recipe=recipe#self.request.user#User.objects.filter()
         )
@@ -66,7 +66,7 @@ class StepDetailView(generics.RetrieveUpdateDestroyAPIView):
             #updated_Recipe=serializer.update(a_Recipe,request.data)
             id=request.data["recipe"]
             recipe = Recipe.objects.get(id=id)
-            updated_Step=serializer.update(a_Step,{"name":request.data["name"],"description":request.data["description"],"recipe":recipe})
+            updated_Step=serializer.update(a_Step,{"step_txt":request.data["step_txt"],"description":request.data["description"],"recipe":recipe})
             return Response(StepSerializer(updated_Step).data)
         except Step.DoesNotExist:
             return Response(

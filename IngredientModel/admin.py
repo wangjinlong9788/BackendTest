@@ -10,7 +10,7 @@ from .models import Ingredient
 
 
 class IngredientAdmin(admin.ModelAdmin):
-    list_display = ('name',  'description')
-    #list_filter = ('name', 'description')
-    #list_editable = ('name',  'description')
+    list_display = ('text',  'description')
+    #list_filter = ('text', 'description')
+    #list_editable = ('text',  'description')
 admin.site.register(Ingredient, IngredientAdmin)

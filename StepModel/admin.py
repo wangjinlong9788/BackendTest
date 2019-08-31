@@ -9,7 +9,7 @@ from .models import Step
 
 
 class StepAdmin(admin.ModelAdmin):
-    list_display = ('name',  'description')
-    list_filter = ('name','description')
+    list_display = ('step_txt',  'description')
+    list_filter = ('step_txt','description')
     list_editable = ( 'description',)
 admin.site.register(Step, StepAdmin)

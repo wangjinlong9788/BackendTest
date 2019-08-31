@@ -25,7 +25,7 @@ class ListCreateIngredientView(generics.ListCreateAPIView):
         recipe = Recipe.objects.get(id=id)
         a_Ingredient=Ingredient.objects.create(
 
-           name=request.data["name"],
+           text=request.data["text"],
            description=request.data["description"],
            recipe=recipe#self.request.user#User.objects.filter()
         )
@@ -66,7 +66,7 @@ class IngredientDetailView(generics.RetrieveUpdateDestroyAPIView):
             #updated_Recipe=serializer.update(a_Recipe,request.data)
             id=request.data["recipe"]
             recipe = Recipe.objects.get(id=id)
-            updated_Ingredient=serializer.update(a_Ingredient,{"name":request.data["name"],"description":request.data["description"],"recipe":recipe})
+            updated_Ingredient=serializer.update(a_Ingredient,{"text":request.data["text"],"description":request.data["description"],"recipe":recipe})
             return Response(IngredientSerializer(updated_Ingredient).data)
         except Ingredient.DoesNotExist:
             return Response(
