@@ -1,5 +1,5 @@
 # BackendTest
-design REST APIs using Django REST Framework
+Design REST APIs using Django REST Framework
 
 
 - python 3.6.5
